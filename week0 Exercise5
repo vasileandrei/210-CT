@@ -31,3 +31,8 @@ if month == 2 and totalDays == 366 and day > 29:
     raise ValueError("This year is LEAP, but this month can't have more than 29 days")
 if month == 2 and totalDays == 365 and day > 28:
     raise ValueError("This year is NOT LEAP, so this month can only have 28 days")
+
+if month == 1:
+    currentDay = day
+    
+print (currentDay, totalDays - currentDay)
