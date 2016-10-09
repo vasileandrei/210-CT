@@ -2,11 +2,12 @@
 and how many are to go in a specified year,
 inputing a month, a day, and a year"""
 
-month, day, year = input("Tell me a month"), input("Tell me a day"), input("Tell me a year")
+month, day, year = input("Tell me a month: "), input("Tell me a day: "), input("Tell me a year: ")
 month, day, year = int(month), int(day), int(year)
 
 currentDay = 0
 totalDays = 365
+lst = []
 
 daysMonth = {1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}
 
@@ -18,9 +19,12 @@ if year % 100 == 0:
     if year % 400 == 0:
         totalDays = 366
         daysMonth[2] = 29
-
+        
+### Some conditions
 if type(month or day or year) != int:
     raise TypeError("The inputs should be integers")
+if month > 12:
+    raise ValueError("There are only 12 months")
 if (month or day) < 0 :
     raise ValueError("The numbers can't be less than 0")
 if month == (1 or 3 or 5 or 7 or 8 or 10 or 12) and day > 31:
@@ -31,8 +35,13 @@ if month == 2 and totalDays == 366 and day > 29:
     raise ValueError("This year is LEAP, but this month can't have more than 29 days")
 if month == 2 and totalDays == 365 and day > 28:
     raise ValueError("This year is NOT LEAP, so this month can only have 28 days")
+### End of conditions
 
 if month == 1:
     currentDay = day
-    
-print (currentDay, totalDays - currentDay)
+for x in range (2,13):
+    if x <= month:
+        lst.append(daysMonth[x])
+currentDay = sum(lst) + day
+
+print ("Days passed :", currentDay, ",  Days to go :", totalDays - currentDay)
