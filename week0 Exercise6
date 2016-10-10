@@ -1,0 +1,32 @@
+"""This code inputs a list and tell which element has the biggest and smallest
+values, compared to the other elements, and also tells the position of the items
+inside the list"""
+
+import json
+
+myString = input("Tell me a list")
+myList = json.loads(myString)
+
+#Finds smallest and biggest values of the list
+maxNumber = max(myList)
+minNumber = min(myList)
+
+found = False
+position = 0
+foundTwo = False
+positionTwo = 0
+
+#position of minNumber
+while position < len(myList) and not found:
+   if myList[position] == minNumber:
+       found = True
+   position = position + 1
+
+#position of maxNumber
+while positionTwo < len(myList) and not foundTwo:
+   if myList[positionTwo] == maxNumber:
+       foundTwo = True
+   positionTwo = positionTwo + 1
+
+print ("Smalles number :", minNumber, "at position :", position - 1)
+print ("Biggest number :", maxNumber, "at position :", positionTwo - 1)
