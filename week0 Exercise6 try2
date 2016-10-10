@@ -1,0 +1,43 @@
+"""This code inputs a list and tell which element has the biggest and smallest
+values, compared to the other elements, and also tells the position of the items
+inside the list"""
+
+myString = input("Tell me a list")
+myList = myString.split()
+
+found = False
+position = 0
+found2 = False
+position2 = 0
+
+#position of minNumber
+while position < len(myList) and not found:
+   if myList[position] == min(myList):
+       found = True
+   position = position + 1
+
+#position of maxNumber
+while position2 < len(myList) and not found2:
+   if myList[position2] == max(myList):
+       found2 = True
+   position2 = position2 + 1
+
+#sorts the list from smalles to biggest
+def bubble(bad_list):
+    length = len(bad_list) - 1
+    sorted = False
+
+    while not sorted:
+        sorted = True
+        for i in range(length):
+            if bad_list[i] > bad_list[i+1]:
+                sorted = False
+                bad_list[i], bad_list[i+1] = bad_list[i+1], bad_list[i]
+
+bubble(myList)
+minNumber = myList[0]
+length = len(myList)
+maxNumber = myList[length - 1]
+
+print ("Smallest number :", minNumber, ", at position :", position - 1)
+print ("Biggest number :", maxNumber, ", at position :", position2 - 1)
