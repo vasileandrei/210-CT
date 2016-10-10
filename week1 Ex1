@@ -1,0 +1,9 @@
+import random
+
+myString = input("Tell me a list")
+myList = myString.split()
+
+finalList = [random.choice(myList) for _ in range(len(myList))]
+
+print (finalList)
+
