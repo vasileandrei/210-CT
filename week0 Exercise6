@@ -2,10 +2,8 @@
 values, compared to the other elements, and also tells the position of the items
 inside the list"""
 
-import json
-
 myString = input("Tell me a list")
-myList = json.loads(myString)
+myList = myString.split()
 
 #Finds smallest and biggest values of the list
 maxNumber = max(myList)
