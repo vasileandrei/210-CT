@@ -1,0 +1,24 @@
+"""This program inputs a number and does the factorial of that number.
+Afterwards, it calculates how many 0's are at the end of that number
+ex: 5!(120), has 1 zero; 10! has 2 zeros; etc."""
+
+myInput = input("Tell me a number")
+number = int(myInput)
+lst = []
+
+def factorial(n):
+    if n < 0 :
+        raise ValueError("The input cannot be less than 0")
+    if n == 0 or n == 1:
+        return (1)
+    else:
+        return n * factorial(n-1)
+
+#function call
+number = factorial(number)
+
+while number // 5 != 0 and number % 5 == 0 :
+    lst.append("zero")
+    number = number // 5
+
+print (len(lst), "zeros in that number")
