@@ -1,9 +1,17 @@
+"""This program will inport a list, and export another list, the same length
+but with items put in a random way"""
+
 import random
 
 myString = input("Tell me a list")
 myList = myString.split()
+finalList = []
+for x in range(100):
+    randomInt = random.choice(myList)
+    finalList.append(randomInt)
+    if len(set(finalList)) == len(myList):
+        break
+    
+print (set(finalList))    
 
-finalList = [random.choice(myList) for _ in range(len(myList))]
-
-print (finalList)
-
+#inputs lst, outputs set
