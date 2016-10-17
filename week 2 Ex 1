@@ -1,0 +1,13 @@
+def squareCheck(a):
+    for x in range (0,a):
+        if x*x == a:
+            return (x*x)
+        elif x*x > a:
+            return (x-1) * (x-1)
+
+""" SQUARE-CHECK(a):
+      for x <- 0 to a
+        if x*x = a
+          return (x*x)
+        else if x*x > a:
+          return (x-1) * (x-1)
