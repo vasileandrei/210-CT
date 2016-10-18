@@ -1,13 +1,19 @@
-def squareCheck(a):
-    for x in range (0,a):
-        if x*x == a:
-            return (x*x)
-        elif x*x > a:
-            return (x-1) * (x-1)
+'''This code return the highest perfect square of a number that is
+less or equal to the number inputed.'''
 
-""" SQUARE-CHECK(a):
-      for x <- 0 to a
-        if x*x = a
-          return (x*x)
-        else if x*x > a:
-          return (x-1) * (x-1)
+
+def squareCheck(numberInputed):
+    for number in range (0,numberInputed):
+        if number*number == numberInputed:
+            return (number*number)
+        elif number*number > numberInputed:
+            return (number-1) * (number-1)
+
+#Pseudocode:
+""" SQUARE-CHECK(numberInputed):
+      for number <- 0 to numberInputed
+        if number*number = numberInputed
+          return (number*number)
+        else if number*number > numberInputed:
+          return (number-1) * (number-1)
+"""
