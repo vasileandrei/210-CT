@@ -34,3 +34,5 @@ def mult2(matrix, number):
     matrix[1][0] = matrix[1][0] * number
     matrix[1][1] = matrix[1][1] * number
     return matrix
+    
+#Formula: result = matrix1*matrix2 - 2*(matrix1*matrix2)
