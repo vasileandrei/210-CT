@@ -1,0 +1,64 @@
+"""Calculator for working with matrices"""
+
+#i is the row
+#j is the column
+
+def summ(matrix1, matrix2, orderOfN):
+    N = orderOfN
+    for i in range(N):
+        for j in range(N):
+            matrix1[i][j] = matrix1[i][j] + matrix2[i][j]
+    return matrix1
+
+def subs(matrix1, matrix2, orderOfN):
+    N = orderOfN
+    for i in range(N):
+        for j in range(N):
+            matrix1[i][j] = matrix1[i][j] - matrix2[i][j]
+    return matrix1
+
+
+def mult(matrix1, matrix2, orderOfN):
+    N = orderOfN
+    for n in range(N+1):
+        result = [[0]*n]*n
+        return result
+    for i in range(N):
+        for j in range(N):
+            for k in range(N):
+
+"""
+for i in range(3):
+	for j in range(3):
+		for k in range(3):
+			print (i,j,k)
+
+			
+0 0 0
+0 0 1
+0 0 2
+0 1 0
+0 1 1
+0 1 2
+0 2 0
+0 2 1
+0 2 2
+1 0 0
+1 0 1
+1 0 2
+1 1 0
+1 1 1
+1 1 2
+1 2 0
+1 2 1
+1 2 2
+2 0 0
+2 0 1
+2 0 2
+2 1 0
+2 1 1
+2 1 2
+2 2 0
+2 2 1
+2 2 2
+"""
