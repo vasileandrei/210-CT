@@ -3,62 +3,55 @@
 #i is the row
 #j is the column
 
-def summ(matrix1, matrix2, orderOfN):
-    N = orderOfN
-    for i in range(N):
-        for j in range(N):
+orderN = input ("What is the order of the matrices?")
+orderN = int (orderN)
+
+#Creating a matrix of order N, that has all elements 0
+for x in range (orderN):
+    zeroMatrix = [[0]*orderN]*orderN
+    resultMatrix = [[0]*orderN]*orderN
+
+#Adding 2 matrices
+def addition(matrix1, matrix2, orderN):
+    for i in range(orderN):
+        for j in range(orderN):
             matrix1[i][j] = matrix1[i][j] + matrix2[i][j]
     return matrix1
 
-def subs(matrix1, matrix2, orderOfN):
-    N = orderOfN
-    for i in range(N):
-        for j in range(N):
+#Substraction of 2 matrices
+def substraction(matrix1, matrix2, orderN):
+    for i in range(orderN):
+        for j in range(orderN):
             matrix1[i][j] = matrix1[i][j] - matrix2[i][j]
     return matrix1
 
+#Multiply on 2 matrices
+def multiplication(B, C, orderN):
+    for i in range(orderN):
+        for j in range(orderN):
+            for k in range(orderN):
+                zeroMatrix[i][j] = B[i][k]*C[k][j] + zeroMatrix[i][j]
+    return zeroMatrix
 
-def mult(matrix1, matrix2, orderOfN):
-    N = orderOfN
-    for n in range(N+1):
-        result = [[0]*n]*n
-        return result
-    for i in range(N):
-        for j in range(N):
-            for k in range(N):
+#Multiply a matrix with a constant(number)
+def mutiplyByConstant(M, number, orderN):
+    for i in range(orderN):
+        for j in range(orderN):
+            M[i][j] = M[i][j] * number
+    return M
 
+#A=B*C-2*(B+C)
+
+B = [[1,2,3], [4,5,6], [2,3,4]]
+C = [[2,3,1], [2,1,4], [2,4,1]]
 """
-for i in range(3):
-	for j in range(3):
-		for k in range(3):
-			print (i,j,k)
+#M = B+C
+M = addition(B,C,orderN)
 
-			
-0 0 0
-0 0 1
-0 0 2
-0 1 0
-0 1 1
-0 1 2
-0 2 0
-0 2 1
-0 2 2
-1 0 0
-1 0 1
-1 0 2
-1 1 0
-1 1 1
-1 1 2
-1 2 0
-1 2 1
-1 2 2
-2 0 0
-2 0 1
-2 0 2
-2 1 0
-2 1 1
-2 1 2
-2 2 0
-2 2 1
-2 2 2
+#N = 2*(B+C)
+N = mutiplyByConstant(M, 2, orderN)
 """
+#P = B*C
+P = multiplication(B, C, orderN)
+print (P)
+
