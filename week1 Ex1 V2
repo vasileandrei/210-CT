@@ -1,28 +1,30 @@
 """This program will inport a list, and export another list, the same length
 but with items put in a random way"""
 
-import random
+import random                                                                           #1
 
 #Conditions
 print ("The list need to have unique values, or it will not start")
 
-myString = input("Tell me a list")
-myList = myString.split()
-condition = False
-finalList = []
+myString = input("Tell me a list")                                                      #1
+myList = myString.split()                                                               #1
+condition = False                                                                       #1
+finalList = []                                                                          #1
 
-while condition == False:
+while condition == False:                                                               #n
     #if both lists have the same length, break the loop, otherwise keep searching
-    if len(myList) == len(finalList):
-        condition = True
+    if len(myList) == len(finalList):                                                   #n
+        condition = True                                                                #1 time, inside n
 
     #selects a random item from the list
-    item = random.choice(myList)
+    item = random.choice(myList)                                                        #n
 
-    #if item already in list, ignore it
-    if item in finalList:
-        continue
-    else:
-        finalList.append(item)
+    #if item already in list, ignore it                                                 #n
+    if item in finalList:                                                               #n
+        continue                                                                        #1 time, inside n
+    else:                                                                               #n
+        finalList.append(item)                                                          #n
     
-print (finalList)
+print (finalList)                                                                       #1
+
+#Complexity: O(n)
