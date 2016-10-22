@@ -1,0 +1,56 @@
+"""Calculator for working with matrices"""
+
+#i is the row
+#j is the column
+
+#Adding 2 matrices
+def addition(matrix1, matrix2):
+    for i in range(len(matrix1)):
+        for j in range(len(matrix2[0])):
+            matrix1[i][j] = matrix1[i][j] + matrix2[i][j]
+    return matrix1
+
+#Substraction of 2 matrices
+def substraction(matrix1, matrix2):
+    for i in range(len(matrix1)):
+        for j in range(len(matrix2[0])):
+            matrix1[i][j] = matrix1[i][j] - matrix2[i][j]
+    return matrix1
+
+#Multiply on 2 matrices
+def multiplication(B, C):
+    B = [[1,2,3], [4,5,6], [2,3,4]]
+    C = [[2,3,1], [2,1,4], [2,4,1]]
+    zeroMatrix = [[0 for row in range(len(B))] for col in range(len(C[0]))]
+    for i in range(len(B)):
+        for j in range(len(C[0])):
+            for k in range(len(C)):
+                zeroMatrix[i][j] = B[i][k]*C[k][j] + zeroMatrix[i][j]
+    return zeroMatrix
+
+#Multiply a matrix with a constant(number)
+def mutiplyByConstant(M, number):
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            M[i][j] = M[i][j] * number
+    return M
+
+#A=B*C-2*(B+C)
+
+B = [[1,2,3], [4,5,6], [2,3,4]]
+C = [[2,3,1], [2,1,4], [2,4,1]]
+
+
+#M = B+C
+M = addition(B,C)
+
+#N = 2*(B+C)
+N = mutiplyByConstant(M, 2)
+
+#P = B*C
+P = multiplication(B, C)
+
+#R = B*C - 2*(B+C)
+Result = substraction(P, N)
+
+print (Result)
