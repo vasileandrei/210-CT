@@ -1,0 +1,29 @@
+//i rowm j column//
+
+matrix <- input MATRIX
+
+ADDITION(matrix1, matrix2)
+  for i <- 0 to n        //number of rows in the first matrix
+    for j <- 0 to m      //number of columns in the second matrix
+      matrix1[i][j] = matrix1[i][j] + matrix2[i][j]      // summ the elements that have the same position
+  RETURN matrix1
+  
+SUBSTRACTION(matrix1, matrix2)
+  for i <- 0 to n        //number of rows in the first matrix
+    for j <- 0 to m      //number of columns in the second matrix
+      matrix1[i][j] = matrix1[i][j] - matrix2[i][j]      // substract the elements that have the same position
+  RETURN matrix1
+  
+MULTIPLY(matrix1, matrix2)
+  zeroMatrix <- matrix that has all values 0s.
+  for i <- 0 to n        //number of rows in the first matrix
+    for j <- 0 to m      //number of columns in the second matrix
+      for k <- 0 to p
+        zeroMatrix[i][j] = B[i][k]*C[k][j] + zeroMatrix[i][j]
+  return zeroMatrix
+  
+MULTIPLYBYCONSTANT(matrix, number)
+for i <- 0 to n          //number of rows in the first matrix
+    for j <- 0 to m      //number of columns in the second matrix
+      matrix[i][j] = matrix[i][j] * number      
+  RETURN matrix
