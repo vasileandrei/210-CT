@@ -1,0 +1,12 @@
+def division (number):
+    """This program tells how many zeros are the end of the
+    number inputed, if you would do the factorial to that number"""
+    
+    if number % 5 != 0 and number // 5 == 0:
+        return 0
+    else:
+        if number >= 25:
+            return (number // 5 + number // 25)
+        else:
+            if number >= 5:            
+                return (number // 5)
