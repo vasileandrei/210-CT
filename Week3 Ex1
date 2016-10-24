@@ -1,0 +1,33 @@
+def reverseSentence(mySentence):
+    words = mySentence.split()
+    length = len(words)
+    highIndex = length - 1
+    halfWay = length / 2
+    for lowIndex in range(0, int(halfWay)):
+        point = words[highIndex]
+        words[highIndex] = words[lowIndex]
+        words[lowIndex] = point
+        highIndex = highIndex - 1
+    return words
+    
+print (reverseSentence("This is a sentence"))
+
+
+
+#PseudoCode
+
+"""
+REVERSE(mySentence):
+words <- split the words        //words has to be a list//
+length <- length of words
+highIndex <- length
+halfWay <- length/2
+
+FOR lowIndex <- 1 to halfWay:
+  point <- words[highIndex]
+  words[highIndex] <- words[lowIndex]
+  words[lowIndex] <- point
+  highIndex <- highIndex - 1
+ 
+RETURN words
+"""
