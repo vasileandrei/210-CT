@@ -1,0 +1,29 @@
+print ("Value has to be set to 2,\n    primeCheck(number, value)")
+
+"""This function checks if the number is prime"""
+
+def primeCheck(number, value):
+    if number < 0 :
+        raise ValueError
+    else:
+        if value < number:
+            if number % value == 0:
+                return False
+            else:
+                return primeCheck(number, value+1)            
+    return True
+    
+    
+#Pseudocode
+"""
+PRIMECHECK(number, value)
+  if number < 0
+    ValueError
+  else:
+    if value < number:
+      if number % value = 0
+        RETURN False
+      else
+        RETURN PRIMECHECK(number, value + 1)
+  return True
+"""
