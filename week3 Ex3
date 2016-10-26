@@ -1,0 +1,20 @@
+lst = []
+"""Program that inputs a string, and takes the vowels out"""
+
+#String to List
+def fromStringToList(string, index):  
+    if len(string) > index:
+        lst.append(string[index])
+        return fromStringToList(string, index+1)
+    return lst
+
+#List with vowels to list without vowels
+def vowelRemover(string, n):   
+    if n < len(string):
+        if string[n]=="a" or string[n]=="e" or string[n]=="i" or string[n]=="o" or string[n]=="u":
+            string.pop(n)
+        return vowelRemover(string, n+1)
+    return string
+      
+string = fromStringToList("This is one sentence", 0)
+print (vowelRemover(string, 0))
