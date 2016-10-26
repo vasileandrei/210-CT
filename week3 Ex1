@@ -1,33 +1,86 @@
-def reverseSentence(mySentence):
-    words = mySentence.split()
+string = input("Tell me a sentence : ")
+
+"""Inputs a sentence"""
+
+#splitWord, will split the words in list, the result containing
+#lists of lists:
+#list[0], list[1] - being the actual words
+#list[0][0], list[0][1] - being the letter inside the first word
+
+def splitWord(string):
+    index = -1
+    nextWord = 0
+    lst = []
+    spaceSpoted = []
+    words = []
+    for x in string:
+        lst.append(x)
+        index = index + 1
+        if x == " ":
+            spaceSpoted.append(index)
+            words.append(lst[nextWord:index])
+            nextWord = index + 1
+    words.append(lst[nextWord::])
+    return words
+
+words = splitWord(string)
+
+#words is the list outputed by the first function, containing the words
+#without having any space between them (no " " character)
+
+def reverseSentence(words):
+
     length = len(words)
     highIndex = length - 1
     halfWay = length / 2
+
     for lowIndex in range(0, int(halfWay)):
         point = words[highIndex]
         words[highIndex] = words[lowIndex]
         words[lowIndex] = point
         highIndex = highIndex - 1
     return words
-    
-print (reverseSentence("This is a sentence"))
+
+print (reverseSentence(words))
+
+
 
 
 
 #PseudoCode
 
 """
-REVERSE(mySentence):
-words <- split the words        //words has to be a list//
-length <- length of words
-highIndex <- length
-halfWay <- length/2
+string <- input sentence
 
-FOR lowIndex <- 1 to halfWay:
-  point <- words[highIndex]
-  words[highIndex] <- words[lowIndex]
-  words[lowIndex] <- point
-  highIndex <- highIndex - 1
+SPLITWORD(string):
+    index <- 0
+    nextWord <- 1
+    lst <- []
+    spaceSpoted <- []
+    words <- []
+    for x in string:
+        lst append (x)
+        index <- index + 1
+        if x = " ":
+            spaceSpotted append (index)
+            words append (lst[nextWord:index])
+            nextWords <- index + 1
+    words append (lst[nextWord::1])
+    retrun words   
+"""
+
+"""
+REVERSE(mySentence):
+    words <- split the words        //words has to be a list//
+    length <- length of words
+    highIndex <- length
+    halfWay <- length/2
+
+    FOR lowIndex <- 1 to halfWay:
+        point <- words[highIndex]
+    words[highIndex] <- words[lowIndex]
+    words[lowIndex] <- point
+    highIndex <- highIndex - 1
  
-RETURN words
+    RETURN words
 """
