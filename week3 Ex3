@@ -12,9 +12,10 @@ def fromStringToList(string, index):
 def vowelRemover(string, n):   
     if n < len(string):
         if string[n]=="a" or string[n]=="e" or string[n]=="i" or string[n]=="o" or string[n]=="u":
-            string.pop(n)
+            #string.pop(n)
+            string[n] = ""
         return vowelRemover(string, n+1)
     return string
       
-string = fromStringToList("This is one sentence", 0)
+string = fromStringToList("Preoteasa", 0)
 print (vowelRemover(string, 0))
