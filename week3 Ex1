@@ -10,9 +10,7 @@ string = input("Tell me a sentence : ")
 def splitWord(string):
     index = -1
     nextWord = 0
-    lst = []
-    spaceSpoted = []
-    words = []
+    lst, spaceSpoted, words = [], [], []
     for x in string:
         lst.append(x)
         index = index + 1
