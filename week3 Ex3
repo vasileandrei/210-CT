@@ -1,3 +1,5 @@
+"""Removes the vowels from a string of text"""
+
 def vowelRemover(string):
 
     if string == "":
@@ -6,4 +8,12 @@ def vowelRemover(string):
         return vowelRemover(string[1:])
     return string[0] + vowelRemover(string[1:])
 
-print (vowelRemover("Beautiful"))
+#Pseudocode
+"""
+VOWELREMOVER(string):
+    if string= "":
+        return string
+    else if string[0] in "aeiouAEIOU":
+        return VOWELREMOVER(string[1:])
+    return string[0] + VOWELREMOVER(string[1:])
+"""
