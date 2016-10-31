@@ -1,0 +1,18 @@
+def binarySearch(myList, item):
+    found = False
+    first = 0
+    last = len(myList)
+
+    while first <= last and not found:
+        midPoint = (first+last)//2
+        print (midPoint)
+        if myList[midPoint] == item:
+            found = True
+        else:
+            if item < myList[midPoint]:
+                last = midPoint - 1
+            else:
+                first = midPoint + 1
+    return found
+
+print (binarySearch([0,1,2,8,9,10,11], 10))
