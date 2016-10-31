@@ -1,0 +1,46 @@
+"""Inputs a list, a starting and an ending code
+   Check if there are any numbers, present in the list
+   can be found in the range (low, high)"""
+
+def binarySearch(alist, low, high):
+
+    found = False
+    first = 0
+    last = len(alist)
+
+    while first<=last and not found:
+        mid = (first+last)//2
+        
+        if alist[mid] >= low and alist[mid] <= high:
+            found = True
+        else:
+            if alist[mid] > low:
+                last = mid - 1
+            else:
+                first = mid + 1
+                
+    return found
+
+print (binarySearch([2,3,5,7,9,13], 10, 14))
+
+#####Pseudocode
+
+"""
+BINARYSEARCH(list, low,high)
+    found <- False
+    first <- 0
+    last <- length of list
+
+    while first <= last and not found
+        mid <- (first+last)/2
+
+        if list[mid] >= low and list[mid] <= high
+            found <- True
+        else:
+            if list[mid] > low:
+                last <- mid - 1
+            else:
+                first <- mid + 1
+                
+    return found    
+"""
