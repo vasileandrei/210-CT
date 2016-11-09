@@ -1,17 +1,16 @@
-def vowelRemover(string):
-    
     """
        This function removes all the vowels from a string
-
        Method used: Recusrive function
     """
     
+def vowelRemover(string):  
     if string == "":
         return string
     elif string[0] in "aeiouAEIOU":
         return vowelRemover(string[1:])
     return string[0] + vowelRemover(string[1:])
 
+print (vowelRemover("Beautiful"))
 
 #Pseudocode
 """
