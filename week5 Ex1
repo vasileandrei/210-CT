@@ -13,11 +13,7 @@ def ascending(array):
     for x in range(len(array)):
         if x + 1 == len(array):
             mxm = max(lst)
-            a = lst.index(mxm)
-            while mxm + 1 != 0:
-                finalLst.append(array[a+1])
-                a = a - 1
-                mxm = mxm - 1         
+            a = lst.index(mxm)     
         else:
             y = x + 1
             if array[y] > array[x]:
@@ -25,6 +21,11 @@ def ascending(array):
             else:
                 count = 0
             lst.append(count)
+
+    while mxm + 1 != 0:
+        finalLst.append(array[a+1])
+        a = a - 1
+        mxm = mxm - 1
             
     return finalLst[::-1]
 
