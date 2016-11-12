@@ -32,11 +32,11 @@ class List():
         print ("List: ",",".join(values))
 
     def delete(self,n):
-        if n.prev != 0:
+        if n.prev != None:
             n.prev.next = n.next
         else:
             self.head = n.next
-        if n.next != 0:
+        if n.next != None:
             n.next.prev = n.prev
         else:
             self.tail = n.prev
@@ -47,3 +47,5 @@ if __name__ == '__main__':
     l.insert(l.head,Node(6))
     l.insert(l.head,Node(8))
     l.display()
+
+
