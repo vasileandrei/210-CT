@@ -1,28 +1,27 @@
 #include <iostream>
 
 class BinTreeNode(object):
-
     def __init__(self, value):
         self.value=value
         self.left=None
         self.right=None
 
 
-def tree_insert(tree, item):
-    if tree==None:
-        tree=BinTreeNode(item)
-    else:
-        if(item < tree.value):
-            if(tree.left==None):
-                tree.left=BinTreeNode(item)
-            else:
-                tree_insert(tree.left,item)
-        elif(item > tree.value):
-            if(tree.right==None):
-                tree.right=BinTreeNode(item)
-            else:
-                tree_insert(tree.right,item)
-    return tree
+    def tree_insert(tree, item):
+        if tree==None:
+            tree=BinTreeNode(item)
+        else:
+            if(item < tree.value):
+                if(tree.left==None):
+                    tree.left=BinTreeNode(item)
+                else:
+                    tree_insert(tree.left,item)
+            elif(item > tree.value):
+                if(tree.right==None):
+                    tree.right=BinTreeNode(item)
+                else:
+                    tree_insert(tree.right,item)
+        return tree
 
 def postorder(tree):
     if(tree.left!=None):
@@ -44,23 +43,8 @@ def in_order(tree):
     print (tree.value)
     if(tree.right!=None):
         in_order(tree.right)
-'''
-def in_order(tree):
-    finalList = []
-    for x in lstOfNodes:
-        if x in finalList:
-            continue
-        else:
-            finalList.append(x)
-    for i in range(len(finalList)):
-        key = finalList[i]
-        j = i
-        while j>0 and finalList[j-1]>key:
-            finalList[j] = finalList[j-1]
-            j = j - 1
-        finalList[j] = key
-    print (finalList)
-'''
+
+
 if __name__ == '__main__':
     
   t=tree_insert(None,6);
