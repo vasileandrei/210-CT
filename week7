@@ -1,0 +1,42 @@
+class Vertex:
+
+    def __init__(self, node):
+        self.node = node
+        self.neighbours = []
+
+    #bounds the vertices that are adjecent
+    def add_neighbour(self, node):
+        return self.neighbours.append(node)
+    
+    def __str__(self):
+        return str(self.node)
+
+class Graph:
+
+    def __init__(self):
+        self.dictionary = {}
+        self.vertices = 0
+
+    def add_vertex(self, vertex):
+        self.vertex = vertex
+        self.vertices = self.vertices + 1
+        newVertex = Vertex(vertex)
+        self.dictionary[vertex] = newVertex
+        return newVertex
+
+    def add_edge(self, vertex1, vertex2):
+        self.dictionary[vertex1].add_neighbour(self.dictionary[vertex2])
+        self.dictionary[vertex2].add_neighbour(self.dictionary[vertex1])
+
+
+if __name__ == "__main__":
+    
+    g = Graph ()
+
+    g.add_vertex('a')
+    g.add_vertex('b')
+    g.add_vertex('c')
+
+    g.add_edge('a', 'b')  
+    g.add_edge('a', 'c')
+
