@@ -1,3 +1,13 @@
+class Queue:
+    def __init__ (self):
+        self.items = []
+
+    def up(self, item):
+        self.items.insert(0, item)
+
+    def down(self):
+        return self.items.pop()
+
 class Vertex:
 
     def __init__(self, node):
@@ -7,9 +17,6 @@ class Vertex:
     #bounds the vertices that are adjecent
     def add_neighbour(self, node):
         return self.neighbours.append(node)
-    
-    def __str__(self):
-        return str(self.node)
 
 class Graph:
 
@@ -29,14 +36,50 @@ class Graph:
         self.dictionary[vertex1].add_neighbour(self.dictionary[vertex2])
         self.dictionary[vertex2].add_neighbour(self.dictionary[vertex1])
 
+    def Depth(graph, vertex):
+        stack = []
+        visited = []
+        s.append(vertex)
+        while len(stack) > 0:
+            current = stack.pop()
+            if current not in visited:
+                visited.append(current)
+            #For all edges, e, from current, stack.append(e.to)
+        return visited
+        
+    def Breadth(graph, vertex):
+        q = Queue()
+        visited = []
+        q.up(vertex)
+        while len(q) > 0:
+            current = q.down()
+            if current not in visited:
+                visited.append(current)
+            #For all edges, e, from current   
+                q.up(x)
+        return visited
+
 if __name__ == "__main__":
     
-    g = Graph ()
+    g = Graph()
 
     g.add_vertex("a")
     g.add_vertex("b")
     g.add_vertex("c")
+    g.add_vertex("d")
+    g.add_vertex("e")
+    g.add_vertex("f")
 
     g.add_edge("a", "b")  
-    g.add_edge("a", "c") 
+    g.add_edge("a", "f")
+    g.add_edge("e", "d")
+    g.add_edge("b", "c")
+    g.add_edge("b", "d")
+    g.add_edge("d", "c")
+    g.add_edge("e", "f")
+    g.add_edge("f", "c")
 
+    g.Depth("a")
+    g.Breadth("e")
+    
+    
