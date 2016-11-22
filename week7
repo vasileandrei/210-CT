@@ -16,6 +16,7 @@ class Graph:
     def __init__(self):
         self.dictionary = {}
         self.vertices = 0
+        #counts the number of vertices
 
     def add_vertex(self, vertex):
         self.vertex = vertex
@@ -28,15 +29,14 @@ class Graph:
         self.dictionary[vertex1].add_neighbour(self.dictionary[vertex2])
         self.dictionary[vertex2].add_neighbour(self.dictionary[vertex1])
 
-
 if __name__ == "__main__":
     
     g = Graph ()
 
-    g.add_vertex('a')
-    g.add_vertex('b')
-    g.add_vertex('c')
+    g.add_vertex("a")
+    g.add_vertex("b")
+    g.add_vertex("c")
 
-    g.add_edge('a', 'b')  
-    g.add_edge('a', 'c')
+    g.add_edge("a", "b")  
+    g.add_edge("a", "c") 
 
