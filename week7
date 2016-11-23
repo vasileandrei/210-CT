@@ -4,13 +4,6 @@ class Vertex:
         self.node = node
         self.neighbours = []
 
-    #bounds the vertices that are adjecent
-    def add_neighbour(self, node):
-        return self.neighbours.append(node)
-
-    def get_neighbours(self, node):
-        return self.seighbours
-        
 class Graph:
 
     def __init__(self):
@@ -22,13 +15,12 @@ class Graph:
         self.vertex = vertex
         self.vertices = self.vertices + 1
         newVertex = Vertex(vertex)
-        self.dictionary[vertex] = newVertex
+        self.dictionary[vertex] = []#newVertex
         return newVertex
 
     def add_edge(self, vertex1, vertex2):
-        self.dictionary[vertex1].add_neighbour(self.dictionary[vertex2])
-        self.dictionary[vertex2].add_neighbour(self.dictionary[vertex1])
-        print (self.dictionary)
+        self.dictionary[vertex1].append(vertex2) #add_neighbour(vertex2)
+        self.dictionary[vertex2].append(vertex1) #add_neighbour(vertex1)
 
     def get_vertex(self, n):
         if n in self.dictionary:
@@ -39,25 +31,24 @@ class Graph:
     def get_vertices(self):
         return self.dictionary.keys()
 
+    def get_dictionary(self):
+        print (self.dictionary.items())
+        return self.dictionary.items()
+"""
     def Breadth(graph, vertex):
         q = []
         visited = []
-        q.insert(0,vertex)
-        #print (q)
-        
+        q.insert(0, vertex)
         while len(q) > 0:
             current = q.pop()
-            #vertex is removed from q list
-            
             if current not in visited:
                 visited.append(current)
-                #vertex is appended to visited
-                
-                for x in range(len(visited)):
-                    a = vertex.get_vertices
-                    print (a)
-                                      
-            
+                #print (q, visited)
+            condition  = True
+            while condition:
+                path = []
+                q.insert(0, g.get_vertex(vertex)
+"""                                 
 """
     def Depth(graph, vertex):
         stack = []
@@ -103,6 +94,17 @@ if __name__ == "__main__":
     g.add_edge("e", "f")
     g.add_edge("f", "c")
 
-    #g.Depth("a")
-    #g.Breadth("e") 
+    g.get_dictionary()
+
+    #g.Breadth("e")
     
+"""
+    g.get_vertex("a")
+    g.get_vertex("b")
+    g.get_vertex("c")
+    g.get_vertex("d")
+    g.get_vertex("e")
+    g.get_vertex("f") 
+"""
+
+    #g.Depth("a")
