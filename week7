@@ -1,15 +1,3 @@
-class Queue:
-    #made for practice and easier spelling
-    
-    def __init__ (self):
-        self.items = []
-
-    def up(self, item):
-        self.items.insert(0, item)
-
-    def down(self):
-        return self.items.pop()
-
 class Vertex:
 
     def __init__(self, node):
@@ -20,6 +8,9 @@ class Vertex:
     def add_neighbour(self, node):
         return self.neighbours.append(node)
 
+    def get_neighbours(self, node):
+        return self.seighbours
+        
 class Graph:
 
     def __init__(self):
@@ -37,7 +28,37 @@ class Graph:
     def add_edge(self, vertex1, vertex2):
         self.dictionary[vertex1].add_neighbour(self.dictionary[vertex2])
         self.dictionary[vertex2].add_neighbour(self.dictionary[vertex1])
+        print (self.dictionary)
 
+    def get_vertex(self, n):
+        if n in self.dictionary:
+            return self.dictionary[n]
+        else:
+            return None
+
+    def get_vertices(self):
+        return self.dictionary.keys()
+
+    def Breadth(graph, vertex):
+        q = []
+        visited = []
+        q.insert(0,vertex)
+        #print (q)
+        
+        while len(q) > 0:
+            current = q.pop()
+            #vertex is removed from q list
+            
+            if current not in visited:
+                visited.append(current)
+                #vertex is appended to visited
+                
+                for x in range(len(visited)):
+                    a = vertex.get_vertices
+                    print (a)
+                                      
+            
+"""
     def Depth(graph, vertex):
         stack = []
         visited = []
@@ -50,17 +71,18 @@ class Graph:
         return visited
         
     def Breadth(graph, vertex):
-        q = Queue()
+        q = []
         visited = []
-        q.up(vertex)
+        q.insert(0, vertex)
         while len(q) > 0:
-            current = q.down()
+            current = q.pop()
             if current not in visited:
                 visited.append(current)
             #For all edges, e, from current   
-                q.up(x)
+                q.insert(0, x)
         return visited
-
+"""
+                      
 if __name__ == "__main__":
     
     g = Graph()
@@ -81,7 +103,6 @@ if __name__ == "__main__":
     g.add_edge("e", "f")
     g.add_edge("f", "c")
 
-    g.Depth("a")
-    g.Breadth("e")
-    
+    #g.Depth("a")
+    #g.Breadth("e") 
     
