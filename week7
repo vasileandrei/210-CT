@@ -29,49 +29,36 @@ class Graph:
         return self.dictionary.keys()
 
     def get_dictionary(self):
-        print (self.dictionary.keys(),"\n", self.dictionary.values(),"\n", self.dictionary.items())
         return self.dictionary.items()
 
     def Breadth(graph, vertex):
-        q = []
+        queue = []
         visited = []
-        q.insert(0, vertex)
-        while len(q) > 0:
-            #print ("q: ", q,"visited :", visited)
-            current = q.pop(0)
+        queue.insert(0, vertex)
+        while len(queue) > 0:
+            current = queue.pop(0)
             if current not in visited:
                 visited.append(current)
             for node in g.get_vertex(current):
                 if node not in visited:
-                    q.insert(0, node)
-        print (visited)
-        return visited                 
-                                 
-"""
+                    queue.insert(0, node)
+        print ("BFS :", visited)
+        return visited
+
     def Depth(graph, vertex):
         stack = []
         visited = []
-        s.append(vertex)
+        stack.append(vertex)
         while len(stack) > 0:
             current = stack.pop()
             if current not in visited:
                 visited.append(current)
-            #For all edges, e, from current, stack.append(e.to)
+            for node in g.get_vertex(current):
+                if node not in visited:
+                    stack.append(node)
+        print ("DFS :", visited)
         return visited
-        
-    def Breadth(graph, vertex):
-        q = []
-        visited = []
-        q.insert(0, vertex)
-        while len(q) > 0:
-            current = q.pop()
-            if current not in visited:
-                visited.append(current)
-            #For all edges, e, from current   
-                q.insert(0, x)
-        return visited
-"""
-                      
+
 if __name__ == "__main__":
     
     g = Graph()
@@ -92,11 +79,5 @@ if __name__ == "__main__":
     g.add_edge("e", "f")
     g.add_edge("f", "c")
 
-
-    #g.get_dictionary()
-
-    #g.get_vertex("e")
-
     g.Breadth("e")
-
-    #g.Depth("a")
+    g.Depth("a")
