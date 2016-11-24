@@ -36,21 +36,16 @@ class Graph:
         q = []
         visited = []
         q.insert(0, vertex)
-        print ("q: ", q,"visited :", visited)
         while len(q) > 0:
-            current = q.pop()
+            #print ("q: ", q,"visited :", visited)
+            current = q.pop(0)
             if current not in visited:
                 visited.append(current)
             for node in g.get_vertex(current):
                 if node not in visited:
-                    if current in q:
-                        continue
                     q.insert(0, node)
-                    print ("q: ", q,"visited :", visited)
-            vertex = q[0]
-        return visited 
-            
-                
+        print (visited)
+        return visited                 
                                  
 """
     def Depth(graph, vertex):
