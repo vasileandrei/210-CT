@@ -8,19 +8,16 @@ class Graph:
 
     def __init__(self):
         self.dictionary = {}
-        self.vertices = 0
-        #counts the number of vertices
 
     def add_vertex(self, vertex):
         self.vertex = vertex
-        self.vertices = self.vertices + 1
         newVertex = Vertex(vertex)
-        self.dictionary[vertex] = []#newVertex
+        self.dictionary[vertex] = []
         return newVertex
 
     def add_edge(self, vertex1, vertex2):
-        self.dictionary[vertex1].append(vertex2) #add_neighbour(vertex2)
-        self.dictionary[vertex2].append(vertex1) #add_neighbour(vertex1)
+        self.dictionary[vertex1].append(vertex2)
+        self.dictionary[vertex2].append(vertex1)
 
     def get_vertex(self, n):
         if n in self.dictionary:
@@ -32,23 +29,29 @@ class Graph:
         return self.dictionary.keys()
 
     def get_dictionary(self):
-        print (self.dictionary.items())
+        print (self.dictionary.keys(),"\n", self.dictionary.values(),"\n", self.dictionary.items())
         return self.dictionary.items()
-"""
+
     def Breadth(graph, vertex):
         q = []
         visited = []
         q.insert(0, vertex)
+        print ("q: ", q,"visited :", visited)
         while len(q) > 0:
             current = q.pop()
             if current not in visited:
                 visited.append(current)
-                #print (q, visited)
-            condition  = True
-            while condition:
-                path = []
-                q.insert(0, g.get_vertex(vertex)
-"""                                 
+            for node in g.get_vertex(current):
+                if node not in visited:
+                    if current in q:
+                        continue
+                    q.insert(0, node)
+                    print ("q: ", q,"visited :", visited)
+            vertex = q[0]
+        return visited 
+            
+                
+                                 
 """
     def Depth(graph, vertex):
         stack = []
@@ -94,17 +97,11 @@ if __name__ == "__main__":
     g.add_edge("e", "f")
     g.add_edge("f", "c")
 
-    g.get_dictionary()
 
-    #g.Breadth("e")
-    
-"""
-    g.get_vertex("a")
-    g.get_vertex("b")
-    g.get_vertex("c")
-    g.get_vertex("d")
-    g.get_vertex("e")
-    g.get_vertex("f") 
-"""
+    #g.get_dictionary()
+
+    #g.get_vertex("e")
+
+    g.Breadth("e")
 
     #g.Depth("a")
