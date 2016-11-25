@@ -1,7 +1,7 @@
 class Vertex:
 
-    def __init__(self, node):
-        self.node = node
+    def __init__(self, vertex):
+        self.node = vertex
         self.neighbours = []
 
 class Graph:
@@ -10,7 +10,6 @@ class Graph:
         self.dictionary = {}
 
     def add_vertex(self, vertex):
-        self.vertex = vertex
         newVertex = Vertex(vertex)
         self.dictionary[vertex] = []
         return newVertex
