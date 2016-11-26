@@ -8,10 +8,10 @@ print ("The list need to have unique values, or it will not start")
 
 myString = input("Tell me a list")                                                      #1
 myList = myString.split()                                                               #1
-condition = False                                                                       #1
+condition = True                                                                        #1
 finalList = []                                                                          #1
 
-while condition == False:                                                               #n
+while condition:                                                                        #n
     #if both lists have the same length, break the loop, otherwise keep searching
     if len(myList) == len(finalList):                                                   #n
         condition = True                                                                #1 time, inside n
