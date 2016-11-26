@@ -10,7 +10,7 @@ def squareCheck(numberInputed):
             return (number-1) * (number-1)
 
 #Pseudocode:
-""" SQUARE-CHECK(numberInputed):
+""" SQUARECHECK(numberInputed)
       for number <- 0 to numberInputed
         if number*number = numberInputed
           return (number*number)
