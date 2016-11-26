@@ -36,6 +36,26 @@ class Graph:
 
     def get_dictionary(self):
         return self.dictionary.items()
+        
+"""
+    def Dijkstra(g, s, d):
+        v = s
+        for all n in g.get_vertices():
+            n.tw = infinite
+        s.tw = 0
+        visited = []
+        while v != d:
+            for all vertices, u, adjecent to v:
+                if v.tw + v[u].w < u.tw:
+                    u.tw = v.tw + v[u].w
+                    u.pre = v
+            visited.append(v)
+            min = infinite
+            for all nodes n in V:
+                in n not in visited and n.tw < min:
+                    v = n
+                    min = n.tw
+"""
 
 if __name__ == "__main__":
     
