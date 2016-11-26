@@ -1,10 +1,10 @@
-print ("Value has to be set to 2,\n    primeCheck(number, value)")
+print ("Only NUMBER has to be given a value")
 
 """This function checks if the number is prime"""
 
-def primeCheck(number, value):
-    if number < 0 :
-        raise ValueError
+def primeCheck(number, value=2):
+    if value != 2:
+        raise ValueError("Value should have the value 2")
     else:
         if value < number:
             if number % value == 0:
@@ -12,15 +12,18 @@ def primeCheck(number, value):
             else:
                 return primeCheck(number, value+1)            
     return True
+
+#Complexity: O(n)
+
     
     
 #Pseudocode
 """
 PRIMECHECK(number, value)
-  if number < 0
-    ValueError
-  else:
-    if value < number:
+  if value =/= 2
+    raise ValueError
+  else
+    if value < number
       if number % value = 0
         RETURN False
       else
