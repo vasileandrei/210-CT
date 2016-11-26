@@ -3,9 +3,11 @@
        Method used: Recusrive function
     """
     
-def vowelRemover(string):  
+def vowelRemover(string):
+    #if string is empty, return
     if string == "":
         return string
+    #if vowel is encountered, skip it
     elif string[0] in "aeiouAEIOU":
         return vowelRemover(string[1:])
     return string[0] + vowelRemover(string[1:])
@@ -14,10 +16,10 @@ print (vowelRemover("Beautiful"))
 
 #Pseudocode
 """
-VOWELREMOVER(string):
-    if string= "":
+VOWELREMOVER(string)
+    if string = ""
         return string
-    else if string[0] in "aeiouAEIOU":
+    else if string[0] in "aeiouAEIOU"
         return VOWELREMOVER(string[1:])
     return string[0] + VOWELREMOVER(string[1:])
 """
