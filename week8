@@ -3,9 +3,16 @@ class Vertex:
     def __init__(self, vertex):
         self.vertex = vertex
         self.neighbours = {}
+        self.previous = None
 
     def add_neighbour(self, vertex, weight=0):
         self.neighbours[vertex] = weight
+
+    def get_neighbours(self):
+        return self.neighbours.items()
+
+    def set_previous(self, prev):
+        self.previous = prev
 
     def get_weight(self, vertex):
         return self.neighbours[vertex]
@@ -36,7 +43,13 @@ class Graph:
 
     def get_dictionary(self):
         return self.dictionary.items()
-        
+
+    def set_previous(self, current):
+        self.previous = current
+
+    def get_previous(self, current):
+        return self.previous
+            
 """
     def Dijkstra(g, s, d):
         v = s
