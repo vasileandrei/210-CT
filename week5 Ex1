@@ -8,7 +8,7 @@ def ascending(array):
 
     #count - counts how many consecutive numbers there are
     #lst stores the number of counts
-    #lst2 stores the output
+    #finalLst stores the output
     
     for x in range(len(array)):
         if x + 1 == len(array):
