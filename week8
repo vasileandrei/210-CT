@@ -4,6 +4,7 @@ class Vertex:
         self.vertex = vertex
         self.neighbours = {}
         self.previous = None
+        self.weight = float("inf")
 
     def add_neighbour(self, vertex, weight=0):
         self.neighbours[vertex] = weight
@@ -30,7 +31,7 @@ class Vertex:
         return self.previous
 
     def __str__(self):
-        return "Vertex  " + (self.vertex) + "  has the neighbours " + str([x.vertex for x in self.neighbours])
+        return "Vertex " + (self.vertex) + " has the neighbours " + str([x.vertex for x in self.neighbours])
 
 class Graph:
 
@@ -76,25 +77,24 @@ class Graph:
                 if n not in visited and n.tw<minn:
                     current = n
                     minn = n.tw
-            
-
+        
 """
-    def Dijkstra(g, s, d):
-        v = s
+    def Dijkstra(g, start, end):
+        curent = start
         for all n in g.get_vertices():
             n.tw = infinite
-        s.tw = 0
+        start.tw = 0
         visited = []
-        while v != d:
+        while current != end:
             for all vertices, u, adjecent to v:
-                if v.tw + v[u].w < u.tw:
-                    u.tw = v.tw + v[u].w
-                    u.pre = v
-            visited.append(v)
+                if current.tw + current[u].w < u.tw:
+                    u.tw = current.tw + current[u].w
+                    u.pre = current
+            visited.append(current)
             min = infinite
-            for all nodes n in V:
+            for all nodes n in current:
                 in n not in visited and n.tw < min:
-                    v = n
+                    current = n
                     min = n.tw
 """
 
@@ -125,8 +125,4 @@ if __name__ == "__main__":
     g.add_edge("g", "e", 7)
     g.add_edge("e", "h", 6)
 
-    a = Vertex("a")
-
-    a.get_neighbours()
-    
-    
+    g.get_vertex("e")
