@@ -11,11 +11,26 @@ class Vertex:
     def get_neighbours(self):
         return self.neighbours.items()
 
-    def set_previous(self, prev):
-        self.previous = prev
-
     def get_weight(self, vertex):
         return self.neighbours[vertex]
+
+    def get_vertex(self):
+        return self.vertex
+
+    def set_distance(self, distance):
+        self.distance = distance
+
+    def get_distance(self):
+        return self.distance
+
+    def set_previous(self, previous):
+        self.previous = previous
+
+    def get_previous(self):
+        return self.previous
+
+    def __str__(self):
+        return "Vertex  " + (self.vertex) + "  has the neighbours " + str([x.vertex for x in self.neighbours])
 
 class Graph:
 
@@ -28,12 +43,12 @@ class Graph:
         return newVertex
 
     def add_edge(self, vertex1, vertex2, cost):
-        
         self.dictionary[vertex1].add_neighbour(self.dictionary[vertex2], cost)
         self.dictionary[vertex2].add_neighbour(self.dictionary[vertex1], cost)
         
     def get_vertex(self, n):
         if n in self.dictionary:
+            print (self.dictionary[n])
             return self.dictionary[n]
         else:
             return None
@@ -44,12 +59,25 @@ class Graph:
     def get_dictionary(self):
         return self.dictionary.items()
 
-    def set_previous(self, current):
-        self.previous = current
-
-    def get_previous(self, current):
-        return self.previous
+    def Dijkstra(g, start, end):
+        current = start
+        for n in g.get_vertices():
+            n.tw = float("inf")
+        s.tw = 0
+        visited = []
+        while current != end:
+            for node in g.get_vertex(current):
+                if current.tw + current[node].w < node.tw:
+                    u.tw = current.tw + current[node].w
+                    node.pre = current
+            visited.append(current)
+            minn = float("inf")
+            for x in current.get_vertices():
+                if n not in visited and n.tw<minn:
+                    current = n
+                    minn = n.tw
             
+
 """
     def Dijkstra(g, s, d):
         v = s
@@ -96,3 +124,9 @@ if __name__ == "__main__":
     g.add_edge("c", "h", 1)
     g.add_edge("g", "e", 7)
     g.add_edge("e", "h", 6)
+
+    a = Vertex("a")
+
+    a.get_neighbours()
+    
+    
