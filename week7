@@ -38,9 +38,9 @@ class Graph:
             current = queue.pop(0)
             if current not in visited:
                 visited.append(current)
-            for node in g.get_vertex(current):
-                if node not in visited:
-                    queue.insert(0, node)
+                for node in g.get_vertex(current):
+                    if node not in visited:
+                        queue.insert(0, node)
         print ("BFS :", visited)
         return visited
 
@@ -52,9 +52,9 @@ class Graph:
             current = stack.pop()
             if current not in visited:
                 visited.append(current)
-            for node in g.get_vertex(current):
-                if node not in visited:
-                    stack.append(node)
+                for node in g.get_vertex(current):
+                    if node not in visited:
+                        stack.append(node)
         print ("DFS :", visited)
         return visited
 
