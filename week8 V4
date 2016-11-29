@@ -55,6 +55,19 @@ class Graph:
 
     def get_dictionary(self):
         return self.dictionary.items()
+        
+    def get_neighbours(self, vertex):
+        if self.dictionary[vertex][0][0] == vertex:
+            return self.dictionary[vertex][0][1]
+        else:
+            return self.dictionary[vertex][0][0]
+
+    def get_weight(self, vertex, neighbour):
+        for n in range(len(self.dictionary[vertex])):
+            for m in range(len(self.dictionary[vertex][0])):
+                if vertex in self.dictionary[vertex][m]:
+                    if neighbour in self.dictionary[vertex][n]:
+                        return (self.dictionary[vertex][n][2])
 
     def Dijkstra(g, start, end):
         current = start
