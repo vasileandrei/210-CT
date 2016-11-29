@@ -1,0 +1,151 @@
+class Vertex:
+
+    def __init__(self, vertex):
+        self.vertex = vertex
+        self.neighbours = []
+        self.previous = None
+        self.tw = None
+
+    def add_neighbour(self, vertex, weight=0):
+        self.neighbours[vertex] = weight
+
+    def get_weight(self, vertex):
+        return self.neighbours[vertex]
+
+    def get_neighbours(self):
+        return self.neighbours.keys()
+
+    def set_distance(self, distance):
+        self.distance = distance
+
+    def get_distance(self):
+        return self.distance
+
+    def set_previous(self, previous):
+        self.previous = previous
+
+    def get_previous(self):
+        return self.previous
+
+    def __str__(self):
+        return "Vertex " + (self.vertex) + " has the neighbours " + str([x.vertex for x in self.neighbours])
+
+class Graph:
+
+    def __init__(self):
+        self.dictionary = {}
+
+    def add_vertex(self, vertex):
+        newVertex = Vertex(vertex)
+        self.dictionary[vertex] = []
+        return newVertex
+
+    def add_edge(self, tpl):
+        self.dictionary[tpl[0]].append(tpl)
+        self.dictionary[tpl[1]].append(tpl)
+        
+    def get_vertex(self, n):
+        if n in self.dictionary:
+            print (self.dictionary[n])
+            return self.dictionary[n]
+        else:
+            return None
+
+    def get_vertices(self):
+        return self.dictionary.keys()
+
+    def get_dictionary(self):
+        return self.dictionary.items()
+
+    def get_neighbours(self, vertex):
+        if self.dictionary[vertex][0][0] == vertex:
+            return self.dictionary[vertex][0][1]
+        else:
+            return self.dictionary[vertex][0][0]
+
+    def test(self, vertex):
+        return (self.dictionary.values[vertex]())
+
+    def get_weight(self, vertex, neighbour):
+        for n in range(len(self.dictionary[vertex])):
+            for m in range(len(self.dictionary[vertex][0])):
+                if vertex in self.dictionary[vertex][m]:
+                    if neighbour in self.dictionary[vertex][n]:
+                        return (self.dictionary[vertex][n][2])
+
+    def Dijkstra(g, start, end):
+        current = start
+        visited = []
+        for n in g.get_vertices():
+            n.tw = float("inf")
+        strt.tw = 0
+        while current != end:
+            for node in g.get_vertex(current):
+                if current.tw + current[node].cost < node.tw:
+                    u.tw = current.tw + current[node].cost
+                    node.previous = current
+            visited.append(current)
+            minn = float("inf")
+            for n in current.get_vertices():
+                if n not in visited and n.tw<minn:
+                    current = n
+                    minn = n.tw
+        
+"""
+    def Dijkstra(g, start, end):
+        curent = start
+        for all n in g.get_vertices():
+            n.tw = infinite
+        start.tw = 0
+        visited = []
+        while current != end:
+            for all vertices, u, adjecent to v:
+                if current.tw + current[u].w < u.tw:
+                    u.tw = current.tw + current[u].w
+                    u.pre = current
+            visited.append(current)
+            min = infinite
+            for all nodes n in current:
+                in n not in visited and n.tw < min:
+                    current = n
+                    min = n.tw
+"""
+
+if __name__ == "__main__":
+    
+    g = Graph()
+
+    g.add_vertex("a")
+    g.add_vertex("b")
+    g.add_vertex("c")
+    g.add_vertex("d")
+    g.add_vertex("e")
+    g.add_vertex("f")
+    g.add_vertex("g")
+    g.add_vertex("h")
+
+    g.add_edge(("a", "b", 2))
+    g.add_edge(("a", "f", 1))
+    g.add_edge(("b", "d", 2))
+    g.add_edge(("b", "e", 4))
+    g.add_edge(("b", "c", 2))
+    g.add_edge(("d", "e", 4))
+    g.add_edge(("d", "f", 3))
+    g.add_edge(("f", "e", 3))
+    g.add_edge(("f", "g", 5))
+    g.add_edge(("c", "e", 3))
+    g.add_edge(("c", "h", 1))
+    g.add_edge(("g", "e", 7))
+    g.add_edge(("e", "h", 6))
+
+    g.get_vertex("f")
+
+    #g.Dijkstra("a", "h")
+
+    #g.get_neighbours("d")
+
+    #g.get_weight("f", "g")
+
+    #g.get_weight("e", "g")
+
+   
