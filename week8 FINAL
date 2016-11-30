@@ -1,0 +1,129 @@
+"""On this task I created a graph data structure, which contains two classe: vertex and graph
+Each class has its own attributes and funtions.
+After the creation of the data structure, I implemented the Dijkstra algorithm.
+Dijkstra finds the least expensive path, from start to end.
+
+
+                         //GRAPH\\
+                         
+                             2
+                 ---(B)-------------(C)---
+          2 ____/    | \     4       |    \____ 1
+       ____/       2 |  -----------  | 3       \____
+      /              |       4     \ |      6       \
+    (A)             (D)-------------(E)-------------(H)
+      \____          |       3     / |         
+           \____   3 |  -----------  | 7   
+          1     \    | /     5       |        
+                 ---(F)-------------(G)
+                 
+
+"""
+class Vertex:
+
+    def __init__(self, vertex):
+        self.vertex = vertex
+        self.neighbours = {}
+        self.distance = 0
+        self.previous = None
+
+    #adds the value to the neighbours dictionary, KEY:VALUE -> Vertex:Weight
+    def add_neighbour(self, vertex, weight=0):
+        self.neighbours[vertex] = weight
+
+    #gets the COST between two vertices
+    def get_weight(self, vertex):
+        return self.neighbours[vertex]
+
+    #finds all the neighbours of that vertex
+    def get_neighbours(self):
+        return self.neighbours.keys()
+
+    #sets the distance (also called tentative weight)
+    def set_distance(self, distance):
+        self.distance = distance
+
+    def get_distance(self):
+        return self.distance
+
+class Graph:
+
+    def __init__(self):
+        self.dictionary = {}
+
+    def add_vertex(self, vertex):
+        newVertex = Vertex(vertex)
+        self.dictionary[vertex] = Vertex(vertex)
+        return newVertex
+
+    def add_edge(self, vertex1, vertex2, cost):
+        self.dictionary[vertex1].add_neighbour(self.dictionary[vertex2], cost)
+        self.dictionary[vertex2].add_neighbour(self.dictionary[vertex1], cost)
+
+    #gets all vertices in the graph
+    def get_vertices(self):
+        return self.dictionary.keys()
+    
+    def Dijkstra(g, start, end):
+        current = start
+        for n in g.get_vertices():
+            #sets all the TW to infinite
+            g.dictionary[n].set_distance(float("inf"))
+        #start tw is 0
+        g.dictionary[start].set_distance(0)
+        visited = []
+        path = []
+        while current != end:
+            #get all the neighbours to the current node
+            for node in g.dictionary[current].get_neighbours():
+                if g.dictionary[current].get_distance() + g.dictionary[current].get_weight(node) < node.distance :
+                    node.set_distance(g.dictionary[current].get_distance() + g.dictionary[current].neighbours[node])
+                    #mentains the path, so it can be backtracked into a result
+                    node.previous = current
+            visited.append(current)
+            minn = float("inf")
+            for n in g.dictionary[current].get_neighbours():
+                if n.vertex not in visited and n.distance < minn:
+                    current = n.vertex
+                    minn = n.distance
+        #creates the path, from the start to end
+        condition = True
+        while condition:
+            if end != start:
+                path.append(end)
+                end = g.dictionary[end].previous
+            else:
+                path.append(end)
+                condition = False
+                
+        print (path[::-1], "of cost :",  g.dictionary[path[0]].distance)
+            
+if __name__ == "__main__":
+    
+    g = Graph()
+
+    g.add_vertex("a")
+    g.add_vertex("b")
+    g.add_vertex("c")
+    g.add_vertex("d")
+    g.add_vertex("e")
+    g.add_vertex("f")
+    g.add_vertex("g")
+    g.add_vertex("h")
+
+    g.add_edge("a", "b", 2)
+    g.add_edge("a", "f", 1)
+    g.add_edge("b", "d", 2)
+    g.add_edge("b", "e", 4)
+    g.add_edge("b", "c", 2)
+    g.add_edge("d", "e", 4)
+    g.add_edge("d", "f", 3)
+    g.add_edge("f", "e", 3)
+    g.add_edge("f", "g", 5)
+    g.add_edge("c", "e", 3)
+    g.add_edge("c", "h", 1)
+    g.add_edge("g", "e", 7)
+    g.add_edge("e", "h", 6)
+
+    g.Dijkstra("a", "h")
+    
