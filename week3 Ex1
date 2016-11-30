@@ -50,16 +50,16 @@ print (reverseSentence(words))
 """
 string <- input sentence
 
-SPLITWORD(string):
+SPLITWORD(string)
     index <- 0
     nextWord <- 1
     lst <- []
     spaceSpoted <- []
     words <- []
-    for x in string:
+    for x in string
         lst append (x)
         index <- index + 1
-        if x = " ":
+        if x = " "
             spaceSpotted append (index)
             words append (lst[nextWord:index])
             nextWords <- index + 1
@@ -68,13 +68,13 @@ SPLITWORD(string):
 """
 
 """
-REVERSE(mySentence):
+REVERSE(mySentence)
     words <- split the words        //words has to be a list//
     length <- length of words
     highIndex <- length
     halfWay <- length/2
 
-    FOR lowIndex <- 1 to halfWay:
+    FOR lowIndex <- 1 to halfWay
         point <- words[highIndex]
     words[highIndex] <- words[lowIndex]
     words[lowIndex] <- point
