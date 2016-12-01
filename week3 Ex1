@@ -41,10 +41,6 @@ def reverseSentence(words):
 
 print (reverseSentence(words))
 
-
-
-
-
 #PseudoCode
 
 """
@@ -65,9 +61,7 @@ SPLITWORD(string)
             nextWords <- index + 1
     words append (lst[nextWord::1])
     retrun words   
-"""
 
-"""
 REVERSE(mySentence)
     words <- split the words        //words has to be a list//
     length <- length of words
