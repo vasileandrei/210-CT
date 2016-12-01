@@ -1,4 +1,5 @@
-"""On this task I created a graph data structure, which contains two classe: vertex and graph
+"""
+On this task I created a graph data structure, which contains two classe: vertex and graph
 Each class has its own attributes and funtions.
 After the creation of the data structure, I the following two algorithms:
 Bradth-First and Depth-First.
