@@ -35,7 +35,7 @@ def in_order(tree):
         in_order(tree.right)
 """
 def in_order(tree):
-    #create a stack, set condition to False
+    #create a stack, set condition to True
     stack = []
     condition = True
     while condition:
@@ -43,7 +43,7 @@ def in_order(tree):
             stack.append(tree)
             tree = tree.left
             #stack values, goes to the most left value in the tree
-            #the most left value, becomes sort of a parent for tree
+            #the most left value, becomes a parent for nodes
         else:
             if len(stack) > 0:
                 tree = stack.pop()
