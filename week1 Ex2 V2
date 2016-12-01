@@ -6,8 +6,7 @@ def division(number):                                              #1
     else:                                                          #n-1
         return (number // 5 + division(number//5))                 #n-1
         
-Complexity = "O(n)"
-print (Complexity)
+#Complexity = "O(n)"
 
 ### Just to verify:
     
