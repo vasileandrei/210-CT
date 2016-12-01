@@ -1,4 +1,5 @@
-"""On this task I created a graph data structure, which contains two classe: vertex and graph
+"""
+On this task I created a graph data structure, which contains two classe: vertex and graph
 Each class has its own attributes and funtions.
 After the creation of the data structure, I implemented the Dijkstra algorithm.
 Dijkstra finds the least expensive path, from start to end.
@@ -17,13 +18,13 @@ Dijkstra finds the least expensive path, from start to end.
           1     \    | /     5       |        
                  ---(F)-------------(G)
                  
-
 """
 class Vertex:
 
     def __init__(self, vertex):
         self.vertex = vertex
         self.neighbours = {}
+        #neighbour will be the value of dictionary
         self.distance = 0
         self.previous = None
 
@@ -60,11 +61,21 @@ class Graph:
         self.dictionary[vertex1].add_neighbour(self.dictionary[vertex2], cost)
         self.dictionary[vertex2].add_neighbour(self.dictionary[vertex1], cost)
 
-    #gets all vertices in the graph
     def get_vertices(self):
         return self.dictionary.keys()
     
     def Dijkstra(g, start, end):
+    
+        ### tentativeWeight = distance; get_distance or set_distance(distance), inside VERTEX class
+        ### weight = weight of an edge, between two vertices
+
+        ### distance is an attribute to the class Vertex
+        ### weight is the cost from a vertex to another, getting it by the function get_weight(vertex), inside VERTEX class
+
+        ### neighbours to the current node can be ound by accessing the function get_neighbour(vertex), inside GRAPH class
+
+        ### all vertices in the graph can be acceses by the function get_vertices(), inside GRAPH class
+        
         current = start
         for n in g.get_vertices():
             #sets all the TW to infinite
@@ -126,4 +137,3 @@ if __name__ == "__main__":
     g.add_edge("e", "h", 6)
 
     g.Dijkstra("a", "h")
-    
