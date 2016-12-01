@@ -1,3 +1,24 @@
+"""On this task I created a graph data structure, which contains two classe: vertex and graph
+Each class has its own attributes and funtions.
+After the creation of the data structure, I the following two algorithms:
+Bradth-First and Depth-First.
+
+
+                         //GRAPH\\
+                         
+                             2
+                 ---(B)-------------(C)---
+          2 ____/    | \     4       |    \____ 1
+       ____/       2 |  -----------  | 3       \____
+      /              |       4     \ |      6       \
+    (A)             (D)-------------(E)-------------(H)
+      \____          |       3     / |         
+           \____   3 |  -----------  | 7   
+          1     \    | /     5       |        
+                 ---(F)-------------(G)
+                 
+"""
+
 class Vertex:
 
     def __init__(self, vertex):
@@ -35,7 +56,7 @@ class Graph:
         visited = []
         queue.insert(0, vertex)
         while len(queue) > 0:
-            current = queue.pop(0)
+            current = queue.pop()
             if current not in visited:
                 visited.append(current)
                 for node in g.get_vertex(current):
@@ -62,22 +83,30 @@ if __name__ == "__main__":
     
     g = Graph()
 
+
     g.add_vertex("a")
     g.add_vertex("b")
     g.add_vertex("c")
     g.add_vertex("d")
     g.add_vertex("e")
     g.add_vertex("f")
+    g.add_vertex("g")
+    g.add_vertex("h")
 
-    g.add_edge("a", "b")  
+    g.add_edge("a", "b")
     g.add_edge("a", "f")
-    g.add_edge("a", "c")
-    g.add_edge("e", "d")
-    g.add_edge("b", "c")
     g.add_edge("b", "d")
-    g.add_edge("d", "c")
-    g.add_edge("e", "f")
-    g.add_edge("f", "c")
+    g.add_edge("b", "e")
+    g.add_edge("b", "c")
+    g.add_edge("d", "e")
+    g.add_edge("d", "f")
+    g.add_edge("f", "e")
+    g.add_edge("f", "g")
+    g.add_edge("c", "e")
+    g.add_edge("c", "h")
+    g.add_edge("g", "e")
+    g.add_edge("e", "h")
 
-    g.Breadth("e")
+    g.Breadth("a")
+    
     g.Depth("a")
