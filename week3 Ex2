@@ -4,8 +4,8 @@ print ("    primeCheck(<number>, sq(<number>)")
 
 from math import sqrt as sq
 
-#it is important that in the END section, SQ(N) in inputed
-# calculating the sqrt of the nubmer will provide a lower complexity
+# it is important that in the END section, SQ(N) in inputted
+# calculating the sqrt of the number will provide a lower complexity
 
 def primeCheck(number, end, value=2):
     if value <= end:
