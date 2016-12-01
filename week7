@@ -25,11 +25,13 @@ class Vertex:
     def __init__(self, vertex):
         self.node = vertex
         self.neighbours = []
+        #neighbours (also the value for the dictionary), are stored as a list
 
 class Graph:
 
     def __init__(self):
         self.dictionary = {}
+        #dictionary, containing Key:Value pairs, Key is Node, Value are the neighbours
 
     def add_vertex(self, vertex):
         newVertex = Vertex(vertex)
@@ -40,6 +42,7 @@ class Graph:
         self.dictionary[vertex1].append(vertex2)
         self.dictionary[vertex2].append(vertex1)
 
+    #gets the neighbours of that vertex
     def get_vertex(self, n):
         if n in self.dictionary:
             return self.dictionary[n]
