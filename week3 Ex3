@@ -1,6 +1,6 @@
     """
        This function removes all the vowels from a string
-       Method used: Recusrive function
+       Method used: Recursive function
     """
     
 def vowelRemover(string):
