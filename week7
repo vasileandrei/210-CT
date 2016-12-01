@@ -71,6 +71,7 @@ if __name__ == "__main__":
 
     g.add_edge("a", "b")  
     g.add_edge("a", "f")
+    g.add_edge("a", "c")
     g.add_edge("e", "d")
     g.add_edge("b", "c")
     g.add_edge("b", "d")
