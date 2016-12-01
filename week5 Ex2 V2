@@ -26,14 +26,18 @@ class List():
             self.tail = x
 
     def delete(self,n):
-        if n.prev != None:
-            n.prev.next = n.next
-        else:
-            self.head = n.next
-        if n.next != None:
-            n.next.prev = n.prev
-        else:
-            self.tail = n.prev
+        x = self.head
+        while x != None:
+            if x.value == n:
+                if x.prev != None:
+                    x.prev.next = x.next
+                else:
+                    l.head = x.next
+                if x.next != None:
+                    x.next.prev = x.prev
+                else:
+                    l.tail = x.prev
+            x = x.next
             
     def display(self):
         values = []
@@ -49,5 +53,5 @@ if __name__ == '__main__':
     l.insert(None, Node(4))
     l.insert(l.head,Node(6))
     l.insert(l.head,Node(8))
-    l.delete(Node(6))
+    l.delete(8)
     l.display()
