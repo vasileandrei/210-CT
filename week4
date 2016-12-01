@@ -10,37 +10,37 @@ def binarySearch(alist, low, high):
 
     while first<=last and not found:
         mid = (first+last)//2
-        
+        #checks if the mid of the list is between the low and high
         if alist[mid] >= low and alist[mid] <= high:
             found = True
         else:
+            #changes mid value, depending on where is the item
             if alist[mid] > low:
                 last = mid - 1
             else:
-                first = mid + 1
-                
+                first = mid + 1   
     return found
 
 print (binarySearch([2,3,5,7,9,13], 10, 14))
 
-#####Pseudocode
+#Complexity: O(log(n))
+
+#Pseudocode
 
 """
 BINARYSEARCH(list, low,high)
     found <- False
     first <- 0
     last <- length of list
-
+    
     while first <= last and not found
         mid <- (first+last)/2
-
         if list[mid] >= low and list[mid] <= high
             found <- True
         else:
             if list[mid] > low:
                 last <- mid - 1
             else:
-                first <- mid + 1
-                
+                first <- mid + 1                
     return found    
 """
