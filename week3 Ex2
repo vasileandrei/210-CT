@@ -1,32 +1,30 @@
-print ("Only NUMBER has to be given a value")
+print ("    primeCheck(<number>, sq(<number>)")
 
 """This function checks if the number is prime"""
 
-def primeCheck(number, value=2):
-    if value != 2:
-        raise ValueError("Value should have the value 2")
-    else:
-        if value < number:
-            if number % value == 0:
-                return False
-            else:
-                return primeCheck(number, value+1)            
+from math import sqrt as sq
+
+#it is important that in the END section, SQ(N) in inputed
+# calculating the sqrt of the nubmer will provide a lower complexity
+
+def primeCheck(number, end, value=2):
+    if value <= end:
+        if number % value == 0:
+            return False
+        else:
+            return primeCheck(number, end, value+1)            
     return True
 
-#Complexity: O(n)
-
+#Complexity: O(sqrt(n))
     
     
 #Pseudocode
 """
-PRIMECHECK(number, value)
-  if value =/= 2
-    raise ValueError
-  else
-    if value < number
+PRIMECHECK(number, end, value=2)
+  if value <= end
       if number % value = 0
         RETURN False
       else
-        RETURN PRIMECHECK(number, value + 1)
+        RETURN PRIMECHECK(number, end, value + 1)
   return True
 """
