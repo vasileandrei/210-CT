@@ -14,14 +14,14 @@ finalList = []                                                                  
 while condition:                                                                        #n
     #if both lists have the same length, break the loop, otherwise keep searching
     if len(myList) == len(finalList):                                                   #n
-        condition = False                                                               #1 time, inside n
+        condition = False                                                               #1
 
     #selects a random item from the list
     item = random.choice(myList)                                                        #n
 
     #if item already in list, ignore it                                                 #n
     if item in finalList:                                                               #n
-        continue                                                                        #1 time, inside n
+        continue                                                                        #n
     else:                                                                               #n
         finalList.append(item)                                                          #n
     
