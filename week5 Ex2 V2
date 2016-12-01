@@ -10,7 +10,6 @@ class List():
         self.tail = None
         
     def insert(self,n,x):
-        #Not actually perfect: how do we prepend to an existing list?
         if n != None:
             x.next = n.next
             n.next = x
@@ -49,6 +48,7 @@ class List():
 
           
 if __name__ == '__main__':
+
     l = List()
     l.insert(None, Node(4))
     l.insert(l.head,Node(6))
