@@ -1,3 +1,10 @@
+"""
+   This program creates a binary tree, inserting items. 
+   The display methods are several: postorder, inorder, preorder. 
+   The function in_order has been created iteratively, 
+   performing the same task as the recursive one.
+"""
+
 class BinTreeNode(object):
     def __init__(self, value):
         self.value=value
