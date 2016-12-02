@@ -1,4 +1,5 @@
-"""Calculator for working with matrices"""
+"""This program will create matrices and use basic algebra operations
+, such as: addition, subtraction, multiplication and multiplication by a scalar"""
 
 #i is the row
 #j is the column
