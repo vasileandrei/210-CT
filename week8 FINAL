@@ -98,14 +98,11 @@ class Graph:
                     current = n.vertex
                     minn = n.distance
         #creates the path, from the start to end
-        condition = True
-        while condition:
-            if end != start:
-                path.append(end)
-                end = g.dictionary[end].previous
-            else:
-                path.append(end)
-                condition = False
+        while end != start:
+            path.append(end)
+            end = g.dictionary[end].previous
+        path.append(end)
+
                 
         print (path[::-1], "of cost :",  g.dictionary[path[0]].distance)
             
