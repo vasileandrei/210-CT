@@ -1,3 +1,6 @@
+"""This program will create matrices and use basic algebra operations, 
+such as: addition, subtraction, multiplication and multiplication by a scalar"""
+
 matrix <- input MATRIX
 
 ADDITION(matrix1, matrix2)
