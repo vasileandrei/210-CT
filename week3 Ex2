@@ -1,6 +1,8 @@
 print ("    primeCheck(<number>, sq(<number>)")
 
-"""This function checks if the number is prime"""
+"""This function checks if the number is prime, by dividing the 
+number with the number in the range of 2 and square of number inputted. 
+If the is not a perfect division, it returns True"""
 
 from math import sqrt as sq
 
