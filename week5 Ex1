@@ -1,4 +1,5 @@
 def ascending(array):
+    """Finds and extracts the sub-sequence where there are the most numbers in an ascending order. """
 
     if type(array) != list:
         raise TypeError("It should be a list, having more than 1 element !")
