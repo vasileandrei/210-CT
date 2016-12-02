@@ -1,12 +1,12 @@
-def division(number):                                              #1
+def division(number):                                              
     """calculates the number of trailing zeros in a factorial"""
     
-    if number < 5:                                                 #n
-        return 0                                                   #1
-    else:                                                          #n-1
-        return (number // 5 + division(number//5))                 #n-1
+    if number < 5:                                                 
+        return 0                                                   
+    else:                                                          
+        return (number // 5 + division(number//5))                 
         
-#Complexity = "O(n)"
+#Complexity = "O(log(n))"
 
 ### Just to verify:
     
@@ -17,4 +17,4 @@ def factorial(number):
     else:
         return (number * factorial(number-1))
 
-#Factorial also O(n)
+#Factorial O(n)
