@@ -66,8 +66,10 @@ class Graph:
                 for node in g.get_vertex(current):
                     if node not in visited:
                         queue.insert(0, node)
-        print ("BFS :", visited)
-        return visited
+        #Saved to a text file, named BFS
+        file = open("BFS.txt", "w")
+        file.write(str(visited))
+        file.close()
 
     def Depth(graph, vertex):
         stack = []
@@ -80,8 +82,10 @@ class Graph:
                 for node in g.get_vertex(current):
                     if node not in visited:
                         stack.append(node)
-        print ("DFS :", visited)
-        return visited
+                        
+        file = open("DFS.txt", "w")
+        file.write(str(visited))
+        file.close()
 
 if __name__ == "__main__":
     
