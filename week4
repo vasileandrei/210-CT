@@ -1,6 +1,9 @@
-"""Inputs a list, a starting and an ending code
+"""
+   Inputs a list, a starting and an ending point
    Check if there are any numbers, present in the list
-   can be found in the range (low, high)"""
+   can be found in the range: low <= item <= high
+"""
+
 
 def binarySearch(alist, low, high):
 
