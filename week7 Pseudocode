@@ -1,0 +1,72 @@
+                         //GRAPH\\
+                         
+                             2
+                 ---(B)-------------(C)---
+          2 ____/    | \     4       |    \____ 1
+       ____/       2 |  -----------  | 3       \____
+      /              |       4     \ |      6       \
+    (A)             (D)-------------(E)-------------(H)
+      \____          |       3     / |         
+           \____   3 |  -----------  | 7   
+          1     \    | /     5       |        
+                 ---(F)-------------(G)
+
+CLASS Vertex
+
+    def __init__(itself, vertex)
+        itself node <- vertex
+        itself neighbours <- [] //neighbours are stored in a list
+
+CLASS Graph
+
+    def __init__itself)
+        itself dictionary <- {} // keys are all the vertices, and neighbours are stores as value
+
+    def add_vertex(self, vertex)
+        newVertex <- Vertex(vertex) //acces it as a instance of class Vertex
+        itself dictionary[vertex] <- []
+        return newVertex
+
+    def add_edge(itself, vertex1, vertex2)
+        itself dictionary[vertex1].append(vertex2) //append to dictionary vertex2, as value for vertex1
+        itself dictionary[vertex2].append(vertex1) //append to dictionary vertex1, as value for vertex2
+
+    def get_vertex(self, n)
+        if n is item in itself dictionary
+            return neighbours of n //return as a list
+        else
+            return None
+
+    def get_vertices(self)
+        return keys
+
+    def get_dictionary(self)
+        return dictionary
+
+def Main
+    
+    g <- Graph
+
+    add vertex "a"
+    add vertex "b"
+    add vertex "c"
+    add vertex "d"
+    add vertex "e"
+    add vertex "f"
+    add vertex "g"
+    add vertex "h"
+
+    add edge ("a", "b")
+    add edge ("a", "f")
+    add edge ("b", "d")
+    add edge ("b", "e")
+    add edge ("b", "c")
+    add edge ("d", "e")
+    add edge ("d", "f")
+    add edge ("f", "e")
+    add edge ("f", "g")
+    add edge ("c", "e")
+    add edge ("c", "h")
+    add edge ("g", "e")
+    add edge ("e", "h")
+
