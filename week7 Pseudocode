@@ -13,7 +13,7 @@
 
 CLASS Vertex
 
-    def __init__(itself, vertex)
+    def __init__(itself, vertex) //itself is the instance of the class
         itself node <- vertex
         itself neighbours <- [] //neighbours are stored in a list
 
